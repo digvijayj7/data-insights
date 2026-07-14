@@ -47,11 +47,7 @@ export default function App() {
       {!data ? (
         <FileUploader onData={setData} onError={setError} />
       ) : (
-        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "1rem" }}>
-          <button onClick={() => setData(null)} style={{ background: "var(--surface-color)", color: "var(--text-primary)", border: "1px solid var(--border-color)" }}>
-            ← Upload another file
-          </button>
-        </div>
+        <Dashboard data={data} onClear={() => setData(null)} />
       )}
 
       {error && (
@@ -67,8 +63,6 @@ export default function App() {
           {error}
         </div>
       )}
-
-      {data && <Dashboard data={data} />}
     </div>
   );
 }
